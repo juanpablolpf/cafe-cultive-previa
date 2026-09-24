@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Café Cultive | Casa Aldeota, Fortaleza</title>
+<meta name="description" content="Café Cultive: casa, café, encontros. Cafés especiais, café da manhã, brunch e doces, todos os dias na Rua Maria Tomásia, 1276, Aldeota, Fortaleza.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap">
+<style>
+  :root {
+    color-scheme: light;
+    --ground: #FCEBDF;
+    --paper: #FFFAF6;
+    --ink: #3A2218;
+    --muted: #7A5A4B;
+    --line: #F0D2C0;
+    --coral: #DD5F48;
+    --coral-ink: #FFFFFF;
+    --mustard: #E6AE45;
+    --display: "Young Serif", "Georgia", serif;
+    --body: "Nunito Sans", "Segoe UI", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  [hidden] { display: none !important; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { background: var(--ground); color: var(--ink); font-family: var(--body); font-size: 1.0625rem; line-height: 1.65; }
+  a { color: inherit; }
+  img { max-width: 100%; display: block; }
+  :focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.08; text-wrap: balance; }
+  .wrap { max-width: 1140px; margin-inline: auto; padding-inline: 24px; }
+
+  .preview-bar { background: var(--ink); color: var(--ground); text-align: center; font-size: .88rem; padding: 8px 16px; line-height: 1.4; }
+
+  .top { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--ground) 94%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+  .logo { font-family: var(--display); font-size: 1.55rem; text-decoration: none; color: var(--coral); }
+  .top nav { display: flex; align-items: center; gap: 26px; }
+  .top nav a { text-decoration: none; color: var(--muted); font-size: .98rem; font-weight: 600; }
+  .top nav a:hover { color: var(--ink); }
+  .btn { display: inline-block; text-decoration: none; font-weight: 700; font-size: 1rem; padding: 12px 24px; border-radius: 999px; background: var(--coral); color: var(--coral-ink); border: 2px solid var(--coral); }
+  .btn:hover { filter: brightness(1.06); }
+  .btn-line { background: var(--paper); color: var(--ink); border-color: var(--line); }
+  .btn-line:hover { border-color: var(--coral); filter: none; }
+  .top nav .btn { color: var(--coral-ink); padding: 8px 18px; font-size: .95rem; }
+  .menu-toggle { display: none; background: var(--paper); border: 2px solid var(--line); color: var(--ink); border-radius: 999px; padding: 7px 16px; font: inherit; font-weight: 700; font-size: .95rem; cursor: pointer; }
+  @media (max-width: 760px) {
+    .menu-toggle { display: inline-block; }
+    .top nav { position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; background: var(--ground); border-bottom: 1px solid var(--line); padding: 8px 24px 20px; }
+    .top nav a { padding-block: 12px; border-bottom: 1px solid var(--line); font-size: 1.05rem; }
+    .top nav .btn { margin-top: 16px; text-align: center; border-bottom: 2px solid var(--coral); padding: 12px; }
+  }
+
+  .hero { display: grid; grid-template-columns: 1fr; gap: 40px; padding-block: 56px 80px; }
+  @media (min-width: 940px) { .hero { grid-template-columns: 7fr 5fr; align-items: center; padding-block: 80px 104px; } }
+  .hero h1 { font-size: clamp(3rem, 8vw, 6rem); letter-spacing: -.015em; margin-bottom: 22px; }
+  .hero h1 span { display: block; }
+  .hero h1 span:nth-child(2) { color: var(--coral); }
+  .hero h1 span:nth-child(3) { color: var(--muted); }
+  .hero .lede { color: var(--muted); font-size: 1.2rem; max-width: 30em; margin-bottom: 30px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+  /* Cartão "hoje" */
+  .today-card { background: var(--paper); border-radius: 28px; padding: 28px; border: 2px solid var(--line); }
+  .today-card img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 18px; margin-bottom: 20px; }
+  .today-card .label { font-weight: 700; color: var(--coral); font-size: .95rem; }
+  .today-card .now { font-family: var(--display); font-size: clamp(1.7rem, 3.2vw, 2.2rem); line-height: 1.15; margin-block: 4px 6px; }
+  .today-card .where { color: var(--muted); font-size: .98rem; }
+
+  section.block { padding-block: 84px; border-top: 1px solid var(--line); }
+  .block h2.title { font-size: clamp(2.2rem, 4.8vw, 3.4rem); margin-bottom: 14px; }
+  .block .intro { color: var(--muted); max-width: 38em; margin-bottom: 36px; }
+
+  .photos { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  @media (min-width: 820px) { .photos { grid-template-columns: repeat(3, 1fr); gap: 18px; } }
+  .photos li { border-radius: 22px; overflow: hidden; background: var(--paper); }
+  .photos img { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; }
+  .credit { margin-top: 14px; font-size: .85rem; color: var(--muted); }
+
+  .offer { list-style: none; display: grid; grid-template-columns: 1fr; gap: 16px; }
+  @media (min-width: 700px) { .offer { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1000px) { .offer { grid-template-columns: repeat(3, 1fr); } }
+  .offer li { background: var(--paper); border-radius: 22px; padding: 24px; }
+  .offer h3 { font-size: 1.45rem; margin-bottom: 6px; }
+  .offer p { color: var(--muted); }
+  .offer .dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 8px; vertical-align: middle; }
+  .menu-cta { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .menu-cta p { color: var(--muted); font-size: .95rem; }
+
+  .units { list-style: none; display: grid; grid-template-columns: 1fr; gap: 16px; }
+  @media (min-width: 820px) { .units { grid-template-columns: 2fr 1fr 1fr; } }
+  .units li { border-radius: 22px; padding: 24px; background: var(--paper); border: 2px solid var(--line); }
+  .units li.main { background: var(--coral); color: var(--coral-ink); border-color: var(--coral); }
+  .units h3 { font-size: 1.5rem; margin-bottom: 6px; }
+  .units p { opacity: .9; }
+
+  .visit { display: grid; grid-template-columns: 1fr; gap: 40px; }
+  @media (min-width: 900px) { .visit { grid-template-columns: 1fr 1fr; gap: 64px; } }
+  .address { font-family: var(--display); font-size: clamp(1.7rem, 3.4vw, 2.4rem); line-height: 1.15; margin-bottom: 14px; }
+  .phone { color: var(--muted); margin-bottom: 22px; }
+  .phone a { color: var(--coral); font-weight: 700; text-underline-offset: 4px; }
+  .hours { width: 100%; border-collapse: collapse; }
+  .hours caption { text-align: left; font-weight: 700; margin-bottom: 6px; }
+  .hours th, .hours td { text-align: left; padding: 12px 0; border-bottom: 1px solid var(--line); font-weight: 400; }
+  .hours th { color: var(--muted); padding-right: 16px; white-space: nowrap; }
+  .hours tr.today th, .hours tr.today td { color: var(--coral); font-weight: 700; }
+  .status { margin-top: 14px; color: var(--muted); }
+  .status b { color: var(--ink); }
+  .map { margin-top: 44px; border-radius: 26px; overflow: hidden; border: 2px solid var(--line); }
+  .map iframe { display: block; width: 100%; height: clamp(280px, 45vw, 420px); border: 0; }
+
+  footer { border-top: 1px solid var(--line); padding-block: 28px 40px; color: var(--muted); font-size: .92rem; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+  @media (max-width: 480px) { .wrap { padding-inline: 16px; } .today-card { padding: 20px; } .actions .btn { flex: 1 1 auto; text-align: center; } }
+</style>
+</head>
+<body>
+  <div class="preview-bar">Proposta de site para o Café Cultive, criada por Juan Filho. Aguardando aprovação.</div>
+  <header class="top">
+    <div class="wrap">
+      <a class="logo" href="#inicio">Café Cultive</a>
+      <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+      <nav id="nav" aria-label="Seções">
+        <a href="#na-casa">Na casa</a>
+        <a href="#enderecos">Endereços</a>
+        <a href="#visite">Visite</a>
+        <a class="btn" href="https://wa.me/message/3CDHESXP3WDVG1" target="_blank" rel="noopener">WhatsApp</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <div class="wrap hero">
+      <div>
+        <h1><span>Casa,</span><span>café,</span><span>encontros.</span></h1>
+        <p class="lede">Cafés especiais, café da manhã, brunch e doces, todos os dias na Aldeota. Tem espaço kids e eventos durante o mês.</p>
+        <div class="actions">
+          <a class="btn" href="https://wa.me/message/3CDHESXP3WDVG1" target="_blank" rel="noopener">Falar pelo WhatsApp</a>
+          <a class="btn btn-line" href="https://www.ifood.com.br/delivery/fortaleza-ce/cafe-cultive-aldeota/741e1251-cfd8-4f5d-9fbf-75790752f08c" target="_blank" rel="noopener">Pedir no iFood</a>
+        </div>
+      </div>
+      <div class="today-card">
+        <img src="fotos/cafe-da-manha.jpg" alt="Bandeja de café da manhã com suco de laranja, panquecas, pão e doces" width="482" height="640">
+        <p class="label">Casa Aldeota</p>
+        <p class="now" id="today-now">Aberto todos os dias, das 7h30 às 21h</p>
+        <p class="where">Rua Maria Tomásia, 1276</p>
+      </div>
+    </div>
+
+    <section class="block" aria-label="Fotos do Café Cultive">
+      <div class="wrap">
+        <ul class="photos">
+          <li><img src="fotos/latte.jpg" alt="Café com leite com desenho de folha na espuma" width="360" height="640" loading="lazy"></li>
+          <li><img src="fotos/bolo.jpg" alt="Fatia de bolo com recheio de creme, coco e morango por cima" width="361" height="640" loading="lazy"></li>
+          <li><img src="fotos/espresso.jpg" alt="Café moído caindo no porta-filtro do moedor" width="480" height="640" loading="lazy"></li>
+        </ul>
+        <p class="credit">Fotos: <a href="https://www.instagram.com/cafecultive/" target="_blank" rel="noopener">@cafecultive</a></p>
+      </div>
+    </section>
+
+    <section id="na-casa" class="block">
+      <div class="wrap">
+        <h2 class="title">O que tem na casa</h2>
+        <p class="intro">Um lugar para começar o dia, fazer uma reunião ou passar a tarde com a família.</p>
+        <ul class="offer">
+          <li><h3><span class="dot" style="background: var(--coral)"></span>Cafés especiais</h3><p>Espresso, coados e bebidas com leite, feitos na hora.</p></li>
+          <li><h3><span class="dot" style="background: var(--mustard)"></span>Café da manhã e brunch</h3><p>Bandejas, pães, ovos e sucos para começar o dia.</p></li>
+          <li><h3><span class="dot" style="background: var(--muted)"></span>Doces</h3><p>Bolos e sobremesas para acompanhar o café.</p></li>
+          <li><h3><span class="dot" style="background: var(--coral)"></span>Espaço kids</h3><p>Um espaço pensado para as crianças.</p></li>
+          <li><h3><span class="dot" style="background: var(--mustard)"></span>Eventos</h3><p>Programação durante o mês, como o Cultive Kids e o Cultive Running Club, em parceria com a Go Running.</p></li>
+          <li><h3><span class="dot" style="background: var(--muted)"></span>Colecionáveis</h3><p>Canecas e copos com a cara do Cultive.</p></li>
+        </ul>
+        <div class="menu-cta">
+          <a class="btn" href="https://www.ifood.com.br/delivery/fortaleza-ce/cafe-cultive-aldeota/741e1251-cfd8-4f5d-9fbf-75790752f08c" target="_blank" rel="noopener">Ver o cardápio no iFood</a>
+          <p>O cardápio completo e os valores atualizados estão no iFood.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="enderecos" class="block">
+      <div class="wrap">
+        <h2 class="title">Três endereços</h2>
+        <p class="intro">A casa na Aldeota e dois quiosques dentro de hospitais da Unimed.</p>
+        <ul class="units">
+          <li class="main"><h3>Casa Aldeota</h3><p>Rua Maria Tomásia, 1276. Todos os dias, das 7h30 às 21h.</p></li>
+          <li><h3>Unimed HU</h3><p>Quiosque. Todos os dias, das 7h às 22h.</p></li>
+          <li><h3>Unimed HUS</h3><p>Quiosque. Todos os dias, das 7h às 22h.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="visite" class="block">
+      <div class="wrap visit">
+        <div>
+          <h2 class="title">Visite a Casa Aldeota</h2>
+          <p class="address">Rua Maria Tomásia, 1276<br>Aldeota, Fortaleza, CE</p>
+          <p class="phone">Telefone: <a href="tel:+558530342713">(85) 3034-2713</a></p>
+          <div class="actions">
+            <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=Caf%C3%A9+Cultive%2C+Rua+Maria+Tom%C3%A1sia%2C+1276%2C+Aldeota%2C+Fortaleza+-+CE" target="_blank" rel="noopener">Como chegar</a>
+            <a class="btn btn-line" href="https://wa.me/message/3CDHESXP3WDVG1" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+        <div>
+          <table class="hours">
+            <caption>Horários da Casa Aldeota</caption>
+            <tbody id="hours-body"></tbody>
+          </table>
+          <p class="status" id="status" aria-live="polite"></p>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="map"><iframe title="Mapa com a localização do Café Cultive" src="https://www.google.com/maps?q=Caf%C3%A9+Cultive,+Rua+Maria+Tom%C3%A1sia,+1276,+Aldeota,+Fortaleza+-+CE&output=embed" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap"><span>Café Cultive</span><span>Rua Maria Tomásia, 1276, Aldeota, Fortaleza</span></div></footer>
+
+  <script>
+    var HOURS = { 0: [[450, 1260]], 1: [[450, 1260]], 2: [[450, 1260]], 3: [[450, 1260]], 4: [[450, 1260]], 5: [[450, 1260]], 6: [[450, 1260]] };
+    var DAYS = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
+  </script>
+  <script src="site.js"></script>
+  <script>
+    // Cartão da abertura: "aberto agora" ou quando abre
+    (function () {
+      var s = document.getElementById("status"), card = document.getElementById("today-now");
+      if (s && card && s.textContent) card.textContent = s.textContent.replace("Aberto agora.", "Aberto agora,").replace("Fecha às", "até").replace(/\.$/, "");
+    })();
+  </script>
+</body>
+</html>
